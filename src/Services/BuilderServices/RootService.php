@@ -1,6 +1,6 @@
 <?php
 
-namespace Bakgul\BuildRepo\Services\PackagifyServices;
+namespace Bakgul\BuildRepo\Services\BuilderServices;
 
 use Bakgul\BuildRepo\Tasks\HandleAssetBundler;
 use Bakgul\Kernel\Helpers\Path;

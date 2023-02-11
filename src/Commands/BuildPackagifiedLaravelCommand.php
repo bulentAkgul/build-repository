@@ -2,7 +2,7 @@
 
 namespace Bakgul\BuildRepo\Commands;
 
-use Bakgul\BuildRepo\Services\PackagifyService;
+use Bakgul\BuildRepo\Services\BuilderService;
 use Bakgul\FileHistory\Concerns\HasHistory;
 use Bakgul\Kernel\Concerns\HasPreparation;
 use Bakgul\Kernel\Concerns\HasRequest;
@@ -30,7 +30,7 @@ class BuildPackagifiedLaravelCommand extends Command
 
         Standalone::isPackage()
             ? $this->createPackage()
-            : PackagifyService::create();
+            : BuilderService::create();
     }
 
     private function createPackage(): void

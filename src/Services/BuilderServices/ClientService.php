@@ -1,6 +1,6 @@
 <?php
 
-namespace Bakgul\BuildRepo\Services\PackagifyServices;
+namespace Bakgul\BuildRepo\Services\BuilderServices;
 
 use Bakgul\BuildRepo\Functions\MakeFolder;
 use Bakgul\BuildRepo\Tasks\CreateFiles;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bakgul\BuildRepo\Services\PackagifyServices;
+namespace Bakgul\BuildRepo\Services\BuilderServices;
 
 use Bakgul\FileContent\Helpers\Content;
 use Bakgul\Kernel\Helpers\Arr;

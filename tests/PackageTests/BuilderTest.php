@@ -6,7 +6,7 @@ use Bakgul\Kernel\Tests\TestServices\TestDataService;
 use Bakgul\Kernel\Tests\TestTasks\SetupTest;
 use Bakgul\Kernel\Tests\TestCase;
 
-class BuildTest extends TestCase
+class BuilderTest extends TestCase
 {
     /** @test */
     public function build_sp()
