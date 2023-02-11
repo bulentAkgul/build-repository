@@ -1,48 +1,23 @@
 # Packagified Laravel
 
-This is the main package that collects the other packages in this family to perform fully.
--   [**Command Evaluator**](https://github.com/bulentAkgul/command-evaluator)
--   [**File Content**](https://github.com/bulentAkgul/file-content)
--   [**File History**](https://github.com/bulentAkgul/file-history)
--   [**Kernel**](https://github.com/bulentAkgul/kernel)
--   [**Laravel File Creator**](https://github.com/bulentAkgul/laravel-file-creator)
--   [**Laravel Resource Creator**](https://github.com/bulentAkgul/laravel-resource-creator)
--   [**Laravel Code Generator**](https://github.com/bulentAkgul/laravel-code-generator)
--   [**Laravel Package Generator**](https://github.com/bulentAkgul/laravel-package-generator)
--   [**Renamer**](https://github.com/bulentAkgul/renamer)
+This is a part of a bigger packages' bundle [**Packagified LAravel**](https://github.com/bulentAkgul/packagified-laravel). This package prepare the repository to code.
 
 #### DISCLAIMER
 It should be production-ready but hasn't been tested enough. You should use it carefully since this package will manipulate your files and folders. Always use a version-control.
 
-### v3 Update guide
-- Go to `vendor/bakgul/kernel/config/apps.php` file and see the changes. We have a new key named `routes` under each app. Bring that new structure to your packagify.php file in your config folder.
-- Add `'bundler' => 'vite' or 'mix'` to the main array under 'Main from Kernel' section in your packagify.php file in your config folder.
-
 ## Installation
-```
-sail composer require bakgul/packagified-laravel --dev
-```
-Next, you need to publish the settings by executing the following command. By doing so, you will have a new file named *packagify.php* on the config folder. If you check the "**files**" array, you can see the file types that can be created. Quite deep explanations are provided in the comment block of the files array.
-
-```
-sail artisan packagify:publish-config
-```
-
-After publishing stubs, you will be able to update the stub files as you need. It's safe to delete the unedited files.
-```
-sail artisan packagify:publish-stub
-```
+You should use this package in the bundle. So, install [**Packagified LAravel**](https://github.com/bulentAkgul/packagified-laravel).
 
 ## Commands
 
 #### VERY IMPORTANT NOTE
 You should use this command only in a freshly installed Laravel app. This command will wipe out some folders, and you will probably lose your previous codes.
 
+Before you call it, make sure you set repository type properly. After publishing the settings, go to `config/packagify.php` and check for essential settings. After you make the changes, run the command down below.
+
 ```
 sail artisan build-pl
 ```
-
-This command will prepare your repository when it's executed. But before you call it, make sure you set repository type properly. After publishing the settings, go to config/packagify.php and search for "repository" to see the settings. You will find the comments there too. Please read them to get explanations.
 
 ### Arguments
 This command accepts no argument.
