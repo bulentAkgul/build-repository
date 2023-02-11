@@ -1,0 +1,13 @@
+<x-layouts.index-layout>
+    <x-slot name="head">
+{{ bundler_style }}
+{{ bundler_script }}
+        {{ $head ?? '' }}
+    </x-slot>
+
+    {{ $slot ?? '' }}
+
+    <x-slot name="script">
+        {{ $script ?? '' }}
+    </x-slot>
+</x-layouts.index-layout>

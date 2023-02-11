@@ -1,0 +1,21 @@
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
+{{ import_spa }}
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: [{{ inputs }}],
+            ssr: "resources/app/scripts/ssr.js",
+            refresh: ["resources/app/**", "resources/clients/**", "routes/**"],
+        }),
+        {{ plugin_spa }}
+    ],
+    server: {
+        hmr: {
+            host: "{{ host }}",
+        },
+    },
+    ssr: {
+        noExternal: [{{ ssr_spa }}],
+    },
+});

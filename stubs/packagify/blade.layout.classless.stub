@@ -1,0 +1,15 @@
+@extends("{{ extend }}")
+
+@section("head")
+{{ bundle_style }}
+{{ bundle_script }}
+{{ head ?? '' }}
+@endsection
+
+@section("app-content")
+{{ content }}
+@endsection
+
+@push("scripts")
+    @yield("scripts"){{ scripts }}
+@endpush

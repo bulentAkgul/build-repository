@@ -1,0 +1,32 @@
+{
+  "name": "bakgul/packagified-laravel",
+  "description": "This is the package that will build repository.",
+  "authors": [
+    {
+      "name": "Bulent Akgul",
+      "email": "bulent.akgul@me.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^8.0.2",
+    "bakgul/kernel": "^3.0",
+    "bakgul/file-content": "^2.0",
+    "bakgul/file-history": "^2.0",
+    "bakgul/laravel-package-generator": "^3.0",
+    "bakgul/laravel-resource-creator": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bakgul\\BuildRepo\\": "src/",
+      "Bakgul\\BuildRepo\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bakgul\\BuildRepo\\BuildRepoServiceProvider"
+      ]
+    }
+  }
+}

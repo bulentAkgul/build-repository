@@ -1,0 +1,59 @@
+<?php
+
+namespace Database\Seeders;
+
+use Bakgul\Kernel\Helpers\Folder;
+use Bakgul\Kernel\Helpers\Package;
+use Bakgul\Kernel\Helpers\Settings;
+use Bakgul\Kernel\Helpers\Str;
+use Bakgul\Kernel\Tasks\GenerateNamespace;
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    const PACKAGES_BY_SEEDING_PRIORITY = [];
+
+    public function run(): void
+    {
+        foreach ($this->packages() as $package) {
+            array_map(fn ($class) => $this->call($class), $this->seeders($package));
+        }
+    }
+
+    private function packages(): array
+    {
+        $prioritizedList = self::PACKAGES_BY_SEEDING_PRIORITY;
+
+        foreach (Package::list(isGroupped: true) as $packages) {
+            foreach ($packages as $package) {
+                if (in_array($package, $prioritizedList)) continue;
+
+                $prioritizedList[] = $package;
+            }
+        }
+
+        return array_filter($prioritizedList);
+    }
+
+    private function seeders(string $package): array
+    {
+        $namespace = '\\' . GenerateNamespace::_([
+            'root' => Package::root($package),
+            'package' => $package,
+            'family' => 'database',
+            'job' => 'file'
+        ]) . '\Seeders';
+
+        $allSeeders = array_map(
+            fn ($x) => str_replace('.php', '', Str::getTail($x)),    
+            Folder::files(Package::path($package, 'database/seeders'))
+        );
+
+        $prioritizedSeeders = config(Settings::identity('registrar') . ".{$package}.seeders");
+
+        return array_map(
+            fn ($seeder) => "{$namespace}\\{$seeder}",
+            [...$prioritizedSeeders, ...array_diff($allSeeders, $prioritizedSeeders)]
+        );
+    }
+}

@@ -1,0 +1,18 @@
+import { createRouter, createWebHistory } from "vue-router";
+import {{ name_pascal }} from "../{{ container }}/{{ name_pascal }}.vue";
+/** IMPORTS */
+
+/** ROUTES */
+const routes = [
+  {
+    path: "/{{ route_prefix }}",
+    name: "{{ name_pascal }}",
+    component: {{ name_pascal }},
+    children: []
+  }
+];
+/** ROUTER */
+export const router = createRouter({
+  history: createWebHistory(),
+  routes
+});
