@@ -15,7 +15,8 @@
     "bakgul/file-history": "^4.0",
     "bakgul/laravel-file-creator": "^4.0",
     "bakgul/laravel-package-generator": "^4.0",
-    "bakgul/laravel-resource-creator": "^4.0"
+    "bakgul/laravel-resource-creator": "^4.0",
+    "bakgul/laravel-helpers": "^1.0"
   },
   "autoload": {
     "psr-4": {
